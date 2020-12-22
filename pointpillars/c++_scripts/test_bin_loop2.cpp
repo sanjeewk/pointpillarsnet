@@ -166,7 +166,7 @@ int main(int argc, char *argv[])
         net->do_pointpillar_display(res, flag, g_test, rgbmat, bevmat, rgbmat.cols, rgbmat.rows, annoret);
         __TOC__(result_show)
 
-        std::string save_path = "results/"+image_path.substr(0, image_path.find_last_of('.'));
+        std::string save_path = image_path.substr(0, image_path.find_last_of('.'));
         if (flag & E_RGB)
         {
             std::cout<<"saving image";              

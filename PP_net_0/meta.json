@@ -1,0 +1,8 @@
+{
+    "lib": "libvart-dpu-runner.so",
+    "filename": "PP_net_0.xmodel",
+    "kernel": [
+        "subgraph_VoxelNet__VoxelNet_PillarFeatureNet_voxel_feature_extractor__PFNLayer_149(transfered_pool2d)"
+    ],
+    "target": "DPUCZDX8G_ISA0_B4096_MAX_BG2"
+}

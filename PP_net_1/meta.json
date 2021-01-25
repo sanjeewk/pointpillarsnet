@@ -1,0 +1,8 @@
+{
+    "lib": "libvart-dpu-runner.so",
+    "filename": "PP_net_1.xmodel",
+    "kernel": [
+        "subgraph_VoxelNet__VoxelNet_RPN_rpn__Conv2d_conv_box__584"
+    ],
+    "target": "DPUCZDX8G_ISA0_B4096_MAX_BG2"
+}

@@ -1,0 +1,13 @@
+model {
+  name: "PP_net_0"
+  kernel {
+     name: "PP_net_0"
+     mean: 103.939
+     mean: 116.779
+     mean: 123.68
+     scale: 1.0
+     scale: 1.0
+     scale: 1.0
+  }
+}
+

@@ -169,7 +169,7 @@ int main(int argc, char *argv[])
         std::string save_path = "results/"+image_path.substr(0, image_path.find_last_of('.'));
         if (flag & E_RGB)
         {
-            std::cout<<"saving image");              
+            std::cout<<"saving image";              
             cv::imwrite(save_path + "_rgb.jpg", rgbmat);
             //cv::imshow("", rgbmat);
             // waitKey(0);

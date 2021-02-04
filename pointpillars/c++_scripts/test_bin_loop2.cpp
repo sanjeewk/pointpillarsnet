@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
     cv::Mat bevmat;
     std::future<cv::Mat> fut_rgb;
 
-    std::double total_time = 0.0;
+    double total_time = 0.0;
 
     for (int i = 0, j = 0; i < 108, j < 108; i++, j++)
     {
@@ -166,12 +166,12 @@ int main(int argc, char *argv[])
         __TIC__(result_show)
         ANNORET annoret;
 
-        auto start = std::chrono::system_clock::now()
+        auto start = std::chrono::system_clock::now();
         auto res = net->run(PointCloud);
         
         net->do_pointpillar_display(res, flag, g_test, rgbmat, bevmat, rgbmat.cols, rgbmat.rows, annoret);
         auto end = std::chrono::system_clock::now();
-        std::chrono::duration<double> elapsed_seconds = end-start
+        std::chrono::duration<double> elapsed_seconds = end-start;
 
         total_time+=elapsed_seconds;
 

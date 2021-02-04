@@ -102,14 +102,14 @@ int main(int argc, char *argv[])
 
     while (getline(readLidar, lidar)){
         lidar_path_list[c] = lidar;
-        cout << lidar
+        cout << lidar;
         c+=1;
     }
 
     c = 0;
     while (getline(readImage, image)){
         image_path_list[c] = image;
-        cout << image
+        cout << image;
         c+=1;
     }
     std::cout <<"------------------------------------------";

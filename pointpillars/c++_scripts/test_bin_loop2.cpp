@@ -23,6 +23,8 @@
 #include <vitis/ai/pointpillars.hpp>
 #include <opencv2/opencv.hpp>
 #include <vitis/ai/profiling.hpp>
+#include <chrono>
+#include <ctime>
 
 using namespace std;
 using namespace cv;
@@ -125,6 +127,8 @@ int main(int argc, char *argv[])
     cv::Mat bevmat;
     std::future<cv::Mat> fut_rgb;
 
+    std::double total_time = 0.0;
+
     for (int i = 0, j = 0; i < 108, j < 108; i++, j++)
     {
         std::string lidar_path = lidar_path_list.at(i);
@@ -148,8 +152,6 @@ int main(int argc, char *argv[])
         //    // cv::imwrite("~/bev0.jpg", bevmat);
         //  }
 
-        auto res = net->run(PointCloud);
-
         __TIC__(rgb_read)
         rgbmat = cv::imread(image_path);
         __TOC__(rgb_read)
@@ -163,7 +165,16 @@ int main(int argc, char *argv[])
 
         __TIC__(result_show)
         ANNORET annoret;
+
+        auto start = std::chrono::system_clock::now()
+        auto res = net->run(PointCloud);
+        
         net->do_pointpillar_display(res, flag, g_test, rgbmat, bevmat, rgbmat.cols, rgbmat.rows, annoret);
+        auto end = std::chrono::system_clock::now();
+        std::chrono::duration<double> elapsed_seconds = end-start
+
+        total_time+=elapsed_seconds;
+
         __TOC__(result_show)
 
         std::string save_path = image_path.substr(0, image_path.find_last_of('.'));
@@ -200,7 +211,10 @@ int main(int argc, char *argv[])
         //       V1I label_preds;
         //
     }
-
+    double avg_time = total_time/108.0;
+    cout << "--------------------------------------------------------------------------------------";
+    cout << "\n";
+    cout << avg_time;
     return 0;
 }
 

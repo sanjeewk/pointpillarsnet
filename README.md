@@ -11,4 +11,4 @@ Lidar birds eye view:
 ![2](images/0000000014_bev.jpg)
 
 
-More infor about PointPillars can be found at: https://arxiv.org/abs/1812.05784
+More info about PointPillars can be found at: https://arxiv.org/abs/1812.05784
